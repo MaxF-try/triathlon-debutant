@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matériel recommandé - TriDébutant.fr</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0b1a2e;
+  --navy-mid:#152238;
+  --orange:#f05a1a;
+  --cream:#f8f4ed;
+  --cream-dark:#ede8df;
+  --text:#18182a;
+  --muted:#5c5c74;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);line-height:1.75}
+
+/* NAV */
+nav{background:var(--navy);padding:1.1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Playfair Display',serif;font-size:1.25rem;color:#fff;text-decoration:none}
+.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:1rem;list-style:none}
+.nav-btn{color:#fff;text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.55rem 1.25rem;border-radius:6px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);transition:background .2s}
+.nav-btn:hover{background:var(--orange);border-color:var(--orange)}
+.nav-btn.active{background:var(--orange);border-color:var(--orange)}
+
+/* HERO */
+.hero{background:var(--navy);padding:5rem 2.5rem 7rem;position:relative;overflow:hidden}
+.hero-bg-text{position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'Playfair Display',serif;font-size:16vw;font-weight:900;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none;white-space:nowrap}
+.hero-inner{max-width:820px;margin:0 auto;position:relative;z-index:1}
+.hero-tag{display:inline-block;background:var(--orange);color:#fff;font-size:.7rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .85rem;border-radius:2px;margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:1.5rem}
+.hero h1 em{font-style:italic;color:var(--orange)}
+.hero-sub{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:580px;line-height:1.75}
+.hero-wave{position:absolute;bottom:0;left:0;right:0;height:60px}
+.hero-wave svg{display:block;width:100%;height:100%}
+
+/* MAIN */
+.main{max-width:860px;margin:0 auto;padding:4rem 2rem 6rem}
+
+/* INTRO */
+.intro-perso{background:#fff;border-radius:14px;border:1px solid var(--cream-dark);padding:1.75rem 2rem;margin-bottom:3rem;display:flex;gap:1.25rem;align-items:flex-start}
+.intro-avatar{width:48px;height:48px;border-radius:50%;background:var(--orange);display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.9rem;flex-shrink:0}
+.intro-text h3{font-size:1rem;font-weight:500;color:var(--navy);margin-bottom:.35rem}
+.intro-text p{font-size:.9rem;color:var(--muted);line-height:1.7;margin:0}
+
+/* SECTION */
+.section{margin-bottom:3.5rem}
+.section-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:2px solid var(--navy)}
+.section-icon{font-size:1.6rem}
+.section-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--navy)}
+.section-count{font-size:.75rem;color:var(--muted);background:var(--cream-dark);padding:.2rem .65rem;border-radius:20px;margin-left:auto}
+
+/* PRODUCT CARD */
+.product-card{background:#fff;border-radius:14px;border:1px solid var(--cream-dark);padding:1.4rem 1.5rem;margin-bottom:1rem;display:flex;gap:1.25rem;align-items:flex-start;transition:box-shadow .2s,transform .2s;position:relative}
+.product-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(11,26,46,.08)}
+.product-card.top-pick::before{content:'⭐ Mon choix';position:absolute;top:-10px;left:1.25rem;background:var(--orange);color:#fff;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .65rem;border-radius:10px}
+.product-icon-wrap{width:56px;height:56px;border-radius:12px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1.75rem;flex-shrink:0}
+.product-body{flex:1;min-width:0}
+.product-name{font-size:.95rem;font-weight:500;color:var(--navy);margin-bottom:.3rem}
+.product-note{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:.75rem}
+.product-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.75rem}
+.tag{font-size:.68rem;font-weight:500;padding:.18rem .6rem;border-radius:10px;letter-spacing:.06em;text-transform:uppercase}
+.tag-level{background:#eaf2ff;color:#2563eb}
+.tag-use{background:#f0faf5;color:#1a9f6e}
+.tag-type{background:#fff4ee;color:var(--orange)}
+.product-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.product-price{font-size:1.1rem;font-weight:700;color:var(--orange)}
+.product-price.see{font-size:.85rem;color:var(--muted);font-weight:400}
+.buy-btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-size:.8rem;font-weight:500;padding:.5rem 1.1rem;border-radius:8px;letter-spacing:.04em;transition:background .2s;white-space:nowrap}
+.buy-btn:hover{background:var(--orange)}
+
+/* AFFILIATE NOTE */
+.aff-note{font-size:.7rem;color:var(--muted);text-align:center;margin-top:.5rem;font-style:italic;padding:.75rem;background:var(--cream);border-radius:8px}
+
+/* COMING SOON */
+.coming-soon{background:#fff;border:2px dashed var(--cream-dark);border-radius:14px;padding:2rem;text-align:center;margin-bottom:1rem}
+.coming-soon p{font-size:.88rem;color:var(--muted);margin:0}
+.coming-soon strong{color:var(--navy);display:block;font-size:1rem;margin-bottom:.3rem}
+
+/* TIP BOX */
+.tip-box{background:var(--navy);border-radius:12px;padding:1.3rem 1.6rem;margin:1.5rem 0;display:flex;gap:1rem;align-items:flex-start}
+.tip-badge{background:var(--orange);color:#fff;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:.22rem .6rem;border-radius:4px;flex-shrink:0;margin-top:2px;white-space:nowrap}
+.tip-box p{color:rgba(255,255,255,.7);margin:0;font-size:.87rem;line-height:1.7}
+.tip-box p strong{color:#fff}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:3rem 2rem;font-size:.8rem;line-height:1.9}
+.foot-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:.4rem}
+.foot-logo span{color:var(--orange)}
+footer a{color:var(--orange);text-decoration:none}
+
+@media(max-width:680px){
+  .hero{padding:3.5rem 1.5rem 5rem}
+  .hero-bg-text{display:none}
+  .main{padding:3rem 1.25rem 4rem}
+  .product-footer{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Tri<span>Débutant</span>.fr</a>
+  <ul class="nav-links">
+    <li><a href="programme-natation.html" class="nav-btn">Programme</a></li>
+    <li><a href="materiel.html" class="nav-btn active">Matériel</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg-text">GEAR</div>
+  <div class="hero-inner">
+    <span class="hero-tag">Matériel · Mes recommandations</span>
+    <h1>Le matériel que<br>je <em>recommande</em></h1>
+    <p class="hero-sub">Pas de publicité, pas de partenariat imposé. Ce sont les produits que je connais, que j'utilise ou que je conseille à mes nageurs. Rien de plus.</p>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#f8f4ed"/>
+    </svg>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- INTRO PERSO -->
+  <div class="intro-perso">
+    <div class="intro-avatar">MN</div>
+    <div class="intro-text">
+      <h3>Entraîneur</h3>
+      <p>Je travaille en piscine depuis plusieurs années et je côtoie chaque jour des nageurs de tous niveaux. Les produits listés ici sont ceux que je recommande sincèrement - pour leur rapport qualité/prix, leur durabilité et leur pertinence pour le triathlon. Les liens sont affiliés Amazon : si tu achètes via ces liens, je touche une petite commission sans coût supplémentaire pour toi.</p>
+    </div>
+  </div>
+
+  <!-- LUNETTES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🥽</span>
+      <h2 class="section-title">Lunettes de natation</h2>
+      <span class="section-count">2 modèles</span>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-badge">Mon conseil</span>
+      <p>Pour le triathlon en eau libre, privilégie des <strong>verres miroir ou teintés</strong> - tu nageras souvent face au soleil. L'anti-buée durable est aussi essentiel sur de longues distances.</p>
+    </div>
+
+    <div class="product-card top-pick" style="margin-top:1.5rem">
+      <div class="product-icon-wrap">🥽</div>
+      <div class="product-body">
+        <div class="product-name">Speedo Fastskin Pure Focus Miroir</div>
+        <div class="product-note">Ma recommandation principale. Verres miroir anti-éblouissement, technologie anti-buée de qualité, ajustement IQfit 3D qui épouse parfaitement le visage. Idéale aussi bien en compétition piscine qu'en eau libre.</div>
+        <div class="product-tags">
+          <span class="tag tag-use">Eau libre</span>
+          <span class="tag tag-use">Piscine</span>
+          <span class="tag tag-level">Intermédiaire / Expert</span>
+          <span class="tag tag-type">Verres miroir</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">59,84 €</span>
+          <a href="https://amzn.to/4tXSW8N" class="buy-btn">Voir sur Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">🥽</div>
+      <div class="product-body">
+        <div class="product-name">Arena Cobra Ultra Swipe MR</div>
+        <div class="product-note">Un excellent rapport qualité/prix avec plus de 7 000 avis positifs. La technologie Swipe anti-buée est particulièrement efficace dans le temps. Très bonne hydrodynamique pour la compétition.</div>
+        <div class="product-tags">
+          <span class="tag tag-use">Eau libre</span>
+          <span class="tag tag-use">Piscine</span>
+          <span class="tag tag-level">Tous niveaux</span>
+          <span class="tag tag-type">Verres miroir</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">47,99 €</span>
+          <a href="https://amzn.to/3Rv33Ua" class="buy-btn">Voir sur Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="aff-note">🔗 Liens affiliés Amazon - merci de soutenir le site en passant par ces liens !</div>
+  </div>
+
+  <!-- ACCESSOIRES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏊</span>
+      <h2 class="section-title">Accessoires d'entraînement</h2>
+      <span class="section-count">3 essentiels</span>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-badge">Mon conseil</span>
+      <p>Ces trois accessoires sont <strong>indispensables pour progresser en crawl</strong>. Je les utilise systématiquement avec mes nageurs. Pas besoin d'acheter du haut de gamme - les modèles d'entrée de gamme font très bien le travail.</p>
+    </div>
+
+    <div class="product-card top-pick" style="margin-top:1.5rem">
+      <div class="product-icon-wrap">🤲</div>
+      <div class="product-body">
+        <div class="product-name">Plaquettes de natation</div>
+        <div class="product-note">Elles amplifient la traction et font ressentir la prise d'eau à chaque coup de bras. Excellent outil pour améliorer la technique et développer la puissance - particulièrement utile pour les longues distances en triathlon.</div>
+        <div class="product-tags">
+          <span class="tag tag-use">Technique</span>
+          <span class="tag tag-use">Puissance</span>
+          <span class="tag tag-level">Tous niveaux</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price see">Voir le prix</span>
+          <a href="https://amzn.to/3QZLn2Y" class="buy-btn">Voir sur Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">🏄</div>
+      <div class="product-body">
+        <div class="product-name">Planche de natation</div>
+        <div class="product-note">Indispensable pour travailler le battement de pieds en crawl. On l'utilise en séries courtes pour renforcer les chevilles et améliorer l'équilibre horizontal dans l'eau. Un basique de toutes mes séances.</div>
+        <div class="product-tags">
+          <span class="tag tag-use">Technique jambes</span>
+          <span class="tag tag-use">Équilibre</span>
+          <span class="tag tag-level">Tous niveaux</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price see">Voir le prix</span>
+          <a href="https://amzn.to/4wj5Dwu" class="buy-btn">Voir sur Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-icon-wrap">🦵</div>
+      <div class="product-body">
+        <div class="product-name">Pull buoy</div>
+        <div class="product-note">Il cale les jambes et te permet de travailler uniquement les bras. Très utile pour corriger la position du corps dans l'eau et reproduire la flottabilité qu'apporte une combinaison de triathlon. Je l'utilise à chaque séance technique.</div>
+        <div class="product-tags">
+          <span class="tag tag-use">Technique bras</span>
+          <span class="tag tag-use">Position</span>
+          <span class="tag tag-level">Tous niveaux</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price see">Voir le prix</span>
+          <a href="https://amzn.to/4dk8tZG" class="buy-btn">Voir sur Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="aff-note">🔗 Liens affiliés Amazon - merci de soutenir le site en passant par ces liens !</div>
+  </div>
+
+  <!-- MONTRE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⌚</span>
+      <h2 class="section-title">Montre GPS triathlon</h2>
+      <span class="section-count">1 modèle</span>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-badge">Mon conseil</span>
+      <p>Une montre GPS n'est pas indispensable pour débuter, mais elle devient très utile dès que tu veux <strong>suivre tes progrès et tes allures</strong> à l'entraînement. Assure-toi qu'elle gère natation piscine ET eau libre.</p>
+    </div>
+
+    <div class="product-card top-pick" style="margin-top:1.5rem">
+      <div class="product-icon-wrap">⌚</div>
+      <div class="product-body">
+        <div class="product-name">Garmin Forerunner 265 (unisexe)</div>
+        <div class="product-note">C'est la montre que je recommande pour le triathlon. Elle gère nativement la natation en piscine, en eau libre, le vélo et la course - avec détection automatique des transitions en mode triathlon. Écran AMOLED tactile très lisible, cardio au poignet précis. Disponible en 46mm ou 42mm (265S) pour les poignets plus fins.</div>
+        <div class="product-tags">
+          <span class="tag tag-use">Natation piscine</span>
+          <span class="tag tag-use">Eau libre</span>
+          <span class="tag tag-use">Triathlon</span>
+          <span class="tag tag-level">Intermédiaire / Expert</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">~350 €</span>
+          <a href="https://amzn.to/4nhMMhf" class="buy-btn">Voir sur Amazon →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="aff-note">🔗 Liens affiliés Amazon - merci de soutenir le site en passant par ces liens !</div>
+  </div>
+
+  <!-- COMBINAISONS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏊</span>
+      <h2 class="section-title">Combinaisons de triathlon</h2>
+      <span class="section-count">À venir</span>
+    </div>
+
+    <div class="tip-box">
+      <span class="tip-badge">Info</span>
+      <p>La combinaison est <strong>obligatoire en dessous de 16°C</strong> en compétition officielle. C'est un investissement important - je prends le temps de bien sélectionner les modèles avant de les recommander.</p>
+    </div>
+
+    <div class="coming-soon" style="margin-top:1.5rem">
+      <strong>Recommandations bientôt disponibles</strong>
+      <p>Je suis en train de tester et comparer plusieurs modèles pour vous proposer les meilleures combinaisons selon votre niveau et votre budget. Revenez bientôt !</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="foot-logo">Tri<span>Débutant</span>.fr</div>
+  <p>Le guide du triathlon pour les débutants francophones</p>
+  <p style="margin-top:.75rem">Ce site contient des liens affiliés Amazon. <a href="#">Mentions légales</a> · <a href="#">Contact</a> · <a href="#">À propos</a></p>
+</footer>
+
+</body>
+</html>
